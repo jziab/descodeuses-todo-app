@@ -1,0 +1,18 @@
+<div class="grid grid-cols-1 md:grid-cols-3 p-4 gap-4">
+    <!--Card 1-->
+    @for (item of kpis; track item.id) {
+ <mat-card class=" text-white p-4" [ngClass]="item.color">
+        <div class="flex items-center gap-x-4">
+           <mat-icon id="b1-col-1">{{item.icon}}</mat-icon> 
+           <div id="b1-col-2">
+             <div id="titre" class="uppercase text-sm">{{item.titre}}</div>
+             <div id="valeur" class="text-2xl font-bold">{{item.value}}</div>
+           </div> 
+        </div>
+        
+         	
+    </mat-card>
+    }
+    
+    
+</div>

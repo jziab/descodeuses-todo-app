@@ -1,0 +1,55 @@
+<div id="full-cover-background" class = "flex h-full bg-gray-100 items-center justify-center" >
+    <div id="centered-block" class="bg bg-white p-6 rounded-xl shadow-md" >
+         <!-- formControlName = 1er parametre de loginForm -->
+        <form [formGroup]="signUp" (ngSubmit)="onSubmit()" >
+            <h2 class="text-center">Sign-up</h2>
+            <!--Nom-->
+              <div id="name-container">
+                <mat-form-field>
+                    <mat-label>Nom</mat-label>
+                    <input matInput formControlName="Nom" type="text" placeholder="Entrer votre Nom"/>
+                    </mat-form-field>
+            </div>
+            <!--Prenom-->
+            <div>
+                <mat-form-field>
+                    <mat-label>Prénom</mat-label>
+                    <input matInput formControlName="prenom" type="text" placeholder="Entrer votre Prénom"/>
+                </mat-form-field>
+            </div>
+            <!--Genre-->
+            <div id="genre-container">
+                 <mat-form-field>
+                    <mat-label>Genre</mat-label>
+                    <mat-select>
+                        @for (genre of listGenre; track genre) {
+                        <mat-option [value]="genre.value">{{genre.text}}</mat-option>
+                        }
+                    </mat-select>
+                    </mat-form-field>
+
+            </div>
+            <!--email-->
+            <div id="email-container">
+                <mat-form-field>
+                    <mat-label>Utilisateur</mat-label>
+                    <input matInput formControlName="username" type="text" placeholder="Utilisateur"/>
+                    </mat-form-field>
+            </div>
+            <!--password-->
+            <div id="password-container">
+               <mat-form-field>
+                    <mat-label>Mot de passe</mat-label>
+                    <input matInput formControlName="password" type="password" placeholder="Mot de passe"/>
+                </mat-form-field>
+
+            </div>
+            <!--button-->
+            <button mat-flat-button class="w-full" type="submit">
+                Se connecter
+            </button>
+        </form>
+    </div>
+        
+</div>
+        

@@ -1,0 +1,30 @@
+
+<div id="full-cover-background" class = "flex h-full bg-gray-100 items-center justify-center" >
+    <div id="centered-block" class="bg bg-white p-6 rounded-xl shadow-md" >
+         <!-- formControlName = 1er parametre de loginForm -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div id="email-container">
+                <h2 class="text-center">connexion</h2>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="username" type="email" placeholder="Email"/>
+                    </mat-form-field>
+            </div>
+            <div id="password-container">
+               <mat-form-field>
+                    <mat-label>Mot de passe</mat-label>
+                    <input matInput formControlName="password" type="password" placeholder="Mot de passe"/>
+                </mat-form-field>
+
+            </div>
+            <button mat-flat-button class="w-full" type="submit">
+                Se connecter
+            </button>
+        </form>
+    </div>
+        
+</div>
+        
+      
+
+   
