@@ -9,7 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -66,6 +66,8 @@ import { AppCalculatriceTailwindComponent } from './app-calculatrice-tailwind/ap
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
+    MatFormFieldModule,
+    MatFormField,
    
   ],
   //injecter in-memory-data.service.ts
