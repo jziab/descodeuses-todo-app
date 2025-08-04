@@ -33,4 +33,8 @@ describe('SignUpComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('formulaire invalide si Nom vide', ()=>{
+   component.signUp.controls['Nom'].setValue('');
+   expect(component.signUp.valid).toBeFalse();
+  })
 });

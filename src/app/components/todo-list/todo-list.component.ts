@@ -32,6 +32,7 @@ export class TodoListComponent implements OnInit {
     //Communication asynchrone donc il faut s'inscrire pour avoir le retour
     this.todoService.getTodos().subscribe((data) => {
       this.todos = data;
+      console.log(data)
     });
   }
   onAddTodo() {

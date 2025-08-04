@@ -18,7 +18,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientInMemoryWebApiModule, InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { UserlistComponent } from './components/userlist/userlist.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -29,6 +29,9 @@ import { TodoTableComponent } from './components/todo-table/todo-table.component
 import {MatTableModule} from '@angular/material/table';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AppCalculatriceTailwindComponent } from './app-calculatrice-tailwind/app-calculatrice-tailwind.component';
+import { MatChipsModule} from '@angular/material/chips';
+import {MatAutocompleteModule } from '@angular/material/autocomplete';
+import { authInterceptor } from './auth/auth.interceptor';
 
 
 
@@ -68,13 +71,20 @@ import { AppCalculatriceTailwindComponent } from './app-calculatrice-tailwind/ap
     MatTableModule,
     MatFormFieldModule,
     MatFormField,
+      MatChipsModule,
+    MatAutocompleteModule,
+    
    
   ],
   //injecter in-memory-data.service.ts
     //comme il est @Injectable
   providers: [
-   provideHttpClient(),
-    importProvidersFrom([HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{delay:200})]),
+   provideHttpClient(
+    withInterceptors([
+        authInterceptor
+      ])
+   ),
+    //importProvidersFrom([HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{delay:200})]),
     provideNativeDateAdapter(),
     {provide: LOCALE_ID, useValue: 'fr'}
   ],

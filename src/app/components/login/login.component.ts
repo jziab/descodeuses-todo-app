@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 //'@' signifie decorateur
 //qui decore la classe component
 // il vient juste avant la classe
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   //'private' avant formBuilder pour pouvoir acceder a la variable 
   //en dehors du constructeur
-constructor(private formBuilder : FormBuilder, private router: Router){
+constructor(private formBuilder : FormBuilder, private router: Router, public authService: AuthService){
 
 }
    
@@ -37,14 +38,15 @@ constructor(private formBuilder : FormBuilder, private router: Router){
      
   }
   onSubmit() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-
-      if(this.loginForm.value.username == 'admin@test.com' && this.loginForm.value.password == 'admin'){
-    sessionStorage.setItem('isLoggedIn', 'true');
-    this.router.navigateByUrl('');
+   if (this.loginForm.valid) {
+      const credentials = this.loginForm.value;
+      this.authService.login(credentials).subscribe({
+        next: (res) => {
+          sessionStorage.setItem('authToken', res.token);
+          this.router.navigateByUrl('');
+        },
+        error: (err) => console.error('Erreur de connexion', err),
+      });
     }
-    }
-    
   }
 }

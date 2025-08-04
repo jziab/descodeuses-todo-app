@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Todo } from '../models/todo.model';
+import { environement } from '../../environements/enviroment';
 //commande pour creer le fichier:
 //ng g service todo
 
@@ -11,7 +12,7 @@ import { Todo } from '../models/todo.model';
   providedIn: 'root',
 })
 export class TodoService {
-  private apiURL = 'api/todos';
+  private apiURL = environement.apiUrl +'/api/action';
   //HttpClient pour communiquer avec le API/Backend
   constructor(private http: HttpClient) {}
   //CRUD
