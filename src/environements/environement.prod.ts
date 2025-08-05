@@ -1,3 +1,3 @@
 export const environement= {
-    apiUrl : 'https://planit-hp4r.onrender.com'
+    apiUrl : 'https://planit-1-1vn4.onrender.com'
 };
