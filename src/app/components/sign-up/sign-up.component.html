@@ -7,7 +7,7 @@
               <div id="name-container">
                 <mat-form-field>
                     <mat-label>Nom</mat-label>
-                    <input matInput formControlName="Nom" type="text" placeholder="Entrer votre Nom"/>
+                    <input matInput formControlName="nom" type="text" placeholder="Entrer votre Nom"/>
                     </mat-form-field>
             </div>
             <!--Prenom-->
@@ -21,7 +21,7 @@
             <div id="genre-container">
                  <mat-form-field>
                     <mat-label>Genre</mat-label>
-                    <mat-select>
+                    <mat-select formControlName = "genre">
                         @for (genre of listGenre; track genre) {
                         <mat-option [value]="genre.value">{{genre.text}}</mat-option>
                         }
@@ -29,6 +29,8 @@
                     </mat-form-field>
 
             </div>
+
+
             <!--email-->
             <div id="email-container">
                 <mat-form-field>
